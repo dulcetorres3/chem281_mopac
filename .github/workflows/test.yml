@@ -10,7 +10,11 @@ jobs:
     steps: 
       - name: Pull image
         run: docker pull dulcetorres/mopac
+
+        
       - name: Run mopac
         run: docker run --rm -v $(pwd):/input dulcetorres/mopac formic_acid.mop
+
+        
       - name: Print results
         run: cat formic_acid.out
