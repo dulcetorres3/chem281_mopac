@@ -1,0 +1,12 @@
+name: MOPAC 
+run-name: Test Workflow
+on: workflow_dispatch
+
+jobs:
+  myjob:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Run Mopac
+        run: docker run --rm -v $(pwd):/input msse/mopac formic_acid.mop
+      - name: Print results
+        run: cat formic_acid.out
