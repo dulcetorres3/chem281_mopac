@@ -1,6 +1,8 @@
 name: MOPAC 
 run-name: Test Workflow
-on: workflow_dispatch
+on:
+  push:
+    branches: "*"
 
 jobs:
   myjob:
