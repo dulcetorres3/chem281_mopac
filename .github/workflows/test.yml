@@ -7,14 +7,15 @@ on:
 jobs:
   myjob:
     runs-on: ubuntu-22.04
-    steps: 
-      - name: Pull image
-        run: docker pull dulcetorres/mopac
-
+    steps:
+       - name: Clone repository
+         uses: actions/checkout@v4
         
-      - name: Run mopac
-        run: docker run --rm -v $(pwd):/input dulcetorres/mopac formic_acid.mop
+       - name: Build docker image
+         run: docker build -t dulcetorres/bse .
 
-        
-      - name: Print results
-        run: cat formic_acid.out
+       - name: Run mopac
+         run: docker run --rm -v $(pwd):/input dulcetorres/mopac formic_acid.mop
+
+       - name: Print results
+         run: cat formic_acid.out
