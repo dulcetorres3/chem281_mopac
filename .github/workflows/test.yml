@@ -12,7 +12,7 @@ jobs:
          uses: actions/checkout@v4
         
        - name: Build docker image
-         run: docker build -t dulcetorres/bse .
+         run: docker build -t dulcetorres/mopac .
 
        - name: Run mopac
          run: docker run --rm -v $(pwd):/input dulcetorres/mopac formic_acid.mop
